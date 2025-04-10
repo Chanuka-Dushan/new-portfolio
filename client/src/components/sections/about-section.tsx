@@ -2,14 +2,29 @@ import { motion } from "framer-motion";
 import EducationExperienceTabs from "@/components/common/education-experience-tabs";
 
 export default function AboutSection() {
-  const stats = [
-    { icon: "fas fa-laptop-code", value: "10+", label: "Projects Completed", color: "text-primary" },
-    { icon: "fas fa-code-branch", value: "15K+", label: "Lines of Code", color: "text-secondary" },
-    { icon: "fas fa-coffee", value: "500+", label: "Cups of Coffee", color: "text-accent" }
+  const githubStats = [
+    { 
+      icon: "fab fa-github", 
+      value: "40+", 
+      label: "GitHub Repositories", 
+      color: "text-primary" 
+    },
+    { 
+      icon: "fas fa-code-branch", 
+      value: "200+", 
+      label: "GitHub Contributions", 
+      color: "text-secondary" 
+    },
+    { 
+      icon: "fas fa-star", 
+      value: "15+", 
+      label: "Starred Projects", 
+      color: "text-accent" 
+    }
   ];
 
   return (
-    <section id="about" className="min-h-screen py-20 bg-gray-50 dark:bg-dark-surface/30">
+    <section id="about" className="min-h-screen py-20 bg-dark-surface/30">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           className="text-center mb-16"
@@ -34,7 +49,7 @@ export default function AboutSection() {
             transition={{ duration: 0.6, delay: 0.1 }}
           >
             <motion.div 
-              className="relative rounded-2xl overflow-hidden shadow-xl ml-0 sm:ml-10 border-8 border-white dark:border-dark-bg"
+              className="relative rounded-2xl overflow-hidden shadow-xl ml-0 sm:ml-10 border-8 border-dark-bg"
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.5 }}
             >
@@ -54,11 +69,11 @@ export default function AboutSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.6 }}
             >
-              <div className="bg-white dark:bg-dark-bg shadow-lg rounded-full px-5 py-2 flex items-center space-x-2">
+              <div className="bg-dark-bg shadow-lg rounded-full px-5 py-2 flex items-center space-x-2 border border-gray-800">
                 <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white">
                   <i className="fas fa-briefcase text-sm"></i>
                 </div>
-                <span className="text-sm font-medium">3+ Years Experience</span>
+                <span className="text-sm font-medium text-gray-300">3+ Years Experience</span>
               </div>
             </motion.div>
             
@@ -69,11 +84,11 @@ export default function AboutSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              <div className="bg-white dark:bg-dark-bg shadow-lg rounded-full px-5 py-2 flex items-center space-x-2">
+              <div className="bg-dark-bg shadow-lg rounded-full px-5 py-2 flex items-center space-x-2 border border-gray-800">
                 <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-white">
                   <i className="fas fa-mobile-alt text-sm"></i>
                 </div>
-                <span className="text-sm font-medium">10+ Mobile Apps</span>
+                <span className="text-sm font-medium text-gray-300">10+ Mobile Apps</span>
               </div>
             </motion.div>
           </motion.div>
@@ -86,17 +101,17 @@ export default function AboutSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <h3 className="text-2xl font-sans font-bold">Software Engineer & Mobile Developer</h3>
+            <h3 className="text-2xl font-sans font-bold text-gray-100">Software Engineer & Mobile Developer</h3>
             
-            <p className="text-gray-700 dark:text-gray-300">
+            <p className="text-gray-300">
               I'm a passionate software developer specializing in mobile application development with a strong foundation in software engineering principles. Currently working as an Intern Software Engineer, I bring creative solutions to complex problems.
             </p>
             
-            <p className="text-gray-700 dark:text-gray-300">
+            <p className="text-gray-300">
               My journey in technology began during college where I discovered my passion for creating intuitive user experiences. I focus on writing clean, maintainable code while staying updated with the latest industry trends and technologies.
             </p>
             
-            {/* Stats Cards */}
+            {/* GitHub Stats Cards */}
             <motion.div 
               className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-8"
               initial={{ opacity: 0, y: 20 }}
@@ -104,18 +119,18 @@ export default function AboutSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
             >
-              {stats.map((stat, index) => (
+              {githubStats.map((stat, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white dark:bg-dark-bg p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300"
+                  className="bg-dark-bg p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-800"
                   whileHover={{ y: -5 }}
                   transition={{ type: "spring", stiffness: 400, damping: 10 }}
                 >
                   <div className={`${stat.color} text-4xl mb-2`}>
                     <i className={stat.icon}></i>
                   </div>
-                  <h4 className="font-sans font-bold text-lg mb-1">{stat.value}</h4>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm">{stat.label}</p>
+                  <h4 className="font-sans font-bold text-lg mb-1 text-gray-100">{stat.value}</h4>
+                  <p className="text-gray-400 text-sm">{stat.label}</p>
                 </motion.div>
               ))}
             </motion.div>

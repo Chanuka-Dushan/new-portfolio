@@ -26,12 +26,13 @@ export default function ContactSection() {
 
   const mutation = useMutation({
     mutationFn: (data: ContactFormData) => {
+      // This would be sent to your email hd.wijewantha@gmail.com via server endpoint
       return apiRequest("POST", "/api/contact", data);
     },
     onSuccess: async () => {
       toast({
         title: "Message sent",
-        description: "I'll get back to you as soon as possible!",
+        description: "Thank you for your message! I'll get back to you as soon as possible.",
         variant: "default",
       });
       reset();
@@ -50,16 +51,48 @@ export default function ContactSection() {
   };
 
   const contactInfo = [
-    { icon: "fas fa-envelope", title: "Email", content: "john.smith@example.com", color: "text-primary", bgColor: "bg-primary/10", link: "mailto:john.smith@example.com" },
-    { icon: "fas fa-phone-alt", title: "Phone", content: "+1 (123) 456-7890", color: "text-secondary", bgColor: "bg-secondary/10", link: "tel:+11234567890" },
-    { icon: "fas fa-map-marker-alt", title: "Location", content: "San Francisco, California", color: "text-accent", bgColor: "bg-accent/10", link: null }
+    { 
+      icon: "fas fa-envelope", 
+      title: "Email", 
+      content: "hd.wijewantha@gmail.com", 
+      color: "text-primary", 
+      bgColor: "bg-primary/20", 
+      link: "mailto:hd.wijewantha@gmail.com" 
+    },
+    { 
+      icon: "fas fa-phone-alt", 
+      title: "Phone", 
+      content: "+94 71 234 5678", 
+      color: "text-secondary", 
+      bgColor: "bg-secondary/20", 
+      link: "tel:+94712345678" 
+    },
+    { 
+      icon: "fas fa-map-marker-alt", 
+      title: "Location", 
+      content: "Colombo, Sri Lanka", 
+      color: "text-accent", 
+      bgColor: "bg-accent/20", 
+      link: null 
+    }
   ];
 
   const socialLinks = [
-    { icon: "fab fa-github", url: "https://github.com", hoverColor: "hover:text-primary hover:bg-primary/5" },
-    { icon: "fab fa-linkedin-in", url: "https://linkedin.com", hoverColor: "hover:text-blue-600 hover:bg-blue-50 dark:hover:text-blue-400 dark:hover:bg-blue-900/20" },
-    { icon: "fab fa-twitter", url: "https://twitter.com", hoverColor: "hover:text-blue-400 hover:bg-blue-50 dark:hover:text-blue-400 dark:hover:bg-blue-900/20" },
-    { icon: "fab fa-instagram", url: "https://instagram.com", hoverColor: "hover:text-pink-600 hover:bg-pink-50 dark:hover:text-pink-400 dark:hover:bg-pink-900/20" }
+    { 
+      icon: "fab fa-github", 
+      url: "https://github.com/Chanuka-Dushan", 
+      hoverColor: "hover:text-primary hover:bg-primary/10" 
+    },
+    { 
+      icon: "fab fa-linkedin-in", 
+      url: "https://linkedin.com", 
+      hoverColor: "hover:text-blue-400 hover:bg-blue-900/20" 
+    },
+    { 
+      icon: "fab fa-instagram", 
+      url: "https://instagram.com", 
+      hoverColor: "hover:text-pink-400 hover:bg-pink-900/20" 
+    }
   ];
 
   return (
@@ -76,7 +109,7 @@ export default function ContactSection() {
             Get In <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Touch</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full"></div>
-          <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mt-4">
+          <p className="text-gray-400 max-w-2xl mx-auto mt-4">
             Have a project in mind or want to collaborate? Feel free to reach out to me through any of the channels below.
           </p>
         </motion.div>
@@ -90,7 +123,7 @@ export default function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-2xl font-sans font-bold">Contact Information</h3>
+            <h3 className="text-2xl font-sans font-bold text-gray-100">Contact Information</h3>
             
             <div className="space-y-6">
               {contactInfo.map((item, index) => (
@@ -106,7 +139,7 @@ export default function ContactSection() {
                     <i className={item.icon}></i>
                   </div>
                   <div>
-                    <h4 className="font-medium text-lg">{item.title}</h4>
+                    <h4 className="font-medium text-lg text-gray-200">{item.title}</h4>
                     {item.link ? (
                       <a 
                         href={item.link} 
@@ -115,7 +148,7 @@ export default function ContactSection() {
                         {item.content}
                       </a>
                     ) : (
-                      <p className="text-gray-600 dark:text-gray-400">{item.content}</p>
+                      <p className="text-gray-400">{item.content}</p>
                     )}
                   </div>
                 </motion.div>
@@ -123,13 +156,13 @@ export default function ContactSection() {
             </div>
             
             <motion.div 
-              className="pt-6 border-t border-gray-200 dark:border-gray-700"
+              className="pt-6 border-t border-gray-800"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
             >
-              <h3 className="text-xl font-sans font-bold mb-4">Follow Me</h3>
+              <h3 className="text-xl font-sans font-bold mb-4 text-gray-100">Follow Me</h3>
               <div className="flex space-x-4">
                 {socialLinks.map((link, index) => (
                   <motion.a 
@@ -137,7 +170,7 @@ export default function ContactSection() {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-12 h-12 rounded-full bg-light-surface dark:bg-dark-bg shadow-md flex items-center justify-center text-gray-600 dark:text-gray-400 ${link.hoverColor} transition-all duration-300`}
+                    className={`w-12 h-12 rounded-full bg-dark-bg shadow-md flex items-center justify-center text-gray-400 ${link.hoverColor} transition-all duration-300 border border-gray-800`}
                     whileHover={{ y: -5 }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -156,13 +189,13 @@ export default function ContactSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="bg-white dark:bg-dark-bg rounded-xl shadow-md p-8">
-              <h3 className="text-2xl font-sans font-bold mb-6">Send Me a Message</h3>
+            <div className="bg-dark-bg rounded-xl shadow-md p-8 border border-gray-800">
+              <h3 className="text-2xl font-sans font-bold mb-6 text-gray-100">Send Me a Message</h3>
               
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">
                       Name
                     </label>
                     <input
@@ -173,8 +206,8 @@ export default function ContactSection() {
                       className={`w-full px-4 py-3 rounded-lg border ${
                         errors.name 
                           ? "border-red-500 focus:ring-red-500" 
-                          : "border-gray-300 dark:border-gray-700 focus:ring-primary dark:focus:ring-primary-light"
-                      } focus:outline-none focus:ring-2 focus:border-transparent bg-light-surface dark:bg-dark-surface text-gray-900 dark:text-gray-100`}
+                          : "border-gray-700 focus:ring-primary-light"
+                      } focus:outline-none focus:ring-2 focus:border-transparent bg-dark-surface text-gray-100`}
                     />
                     {errors.name && (
                       <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>
@@ -182,7 +215,7 @@ export default function ContactSection() {
                   </div>
                   
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-1">
                       Email
                     </label>
                     <input
@@ -193,8 +226,8 @@ export default function ContactSection() {
                       className={`w-full px-4 py-3 rounded-lg border ${
                         errors.email 
                           ? "border-red-500 focus:ring-red-500" 
-                          : "border-gray-300 dark:border-gray-700 focus:ring-primary dark:focus:ring-primary-light"
-                      } focus:outline-none focus:ring-2 focus:border-transparent bg-light-surface dark:bg-dark-surface text-gray-900 dark:text-gray-100`}
+                          : "border-gray-700 focus:ring-primary-light"
+                      } focus:outline-none focus:ring-2 focus:border-transparent bg-dark-surface text-gray-100`}
                     />
                     {errors.email && (
                       <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
@@ -203,7 +236,7 @@ export default function ContactSection() {
                 </div>
                 
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-1">
                     Subject
                   </label>
                   <input
@@ -214,8 +247,8 @@ export default function ContactSection() {
                     className={`w-full px-4 py-3 rounded-lg border ${
                       errors.subject 
                         ? "border-red-500 focus:ring-red-500" 
-                        : "border-gray-300 dark:border-gray-700 focus:ring-primary dark:focus:ring-primary-light"
-                    } focus:outline-none focus:ring-2 focus:border-transparent bg-light-surface dark:bg-dark-surface text-gray-900 dark:text-gray-100`}
+                        : "border-gray-700 focus:ring-primary-light"
+                    } focus:outline-none focus:ring-2 focus:border-transparent bg-dark-surface text-gray-100`}
                   />
                   {errors.subject && (
                     <p className="mt-1 text-sm text-red-500">{errors.subject.message}</p>
@@ -223,7 +256,7 @@ export default function ContactSection() {
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-1">
                     Message
                   </label>
                   <textarea
@@ -234,8 +267,8 @@ export default function ContactSection() {
                     className={`w-full px-4 py-3 rounded-lg border ${
                       errors.message 
                         ? "border-red-500 focus:ring-red-500" 
-                        : "border-gray-300 dark:border-gray-700 focus:ring-primary dark:focus:ring-primary-light"
-                    } focus:outline-none focus:ring-2 focus:border-transparent bg-light-surface dark:bg-dark-surface text-gray-900 dark:text-gray-100 resize-none`}
+                        : "border-gray-700 focus:ring-primary-light"
+                    } focus:outline-none focus:ring-2 focus:border-transparent bg-dark-surface text-gray-100 resize-none`}
                   />
                   {errors.message && (
                     <p className="mt-1 text-sm text-red-500">{errors.message.message}</p>
