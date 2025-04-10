@@ -6,32 +6,33 @@ export default function EducationExperienceTabs() {
 
   const education = [
     {
-      title: "B.S. Computer Science",
-      institution: "University of Technology, 2018-2022",
-      description: "Graduated with honors, specialized in Mobile Application Development",
+      title: "BSc.Information Technology",
+      institution: "Sri Lanka Institute of Information Technology, 2022 - present",
+      description: "Undergraduate program focusing on software engineering and mobile development",
       icon: "fas fa-graduation-cap"
     },
-    {
-      title: "Mobile Development Certification",
-      institution: "Google Developer Academy, 2022",
-      description: "Advanced Android development and Flutter framework",
-      icon: "fas fa-certificate"
-    }
+    // {
+    //   title: "Mobile Development Certification",
+    //   institution: "Google Developer Academy, 2022",
+    //   description: "Advanced Android development and Flutter framework",
+    //   icon: "fas fa-certificate"
+    // }
   ];
 
   const experience = [
     {
       title: "Intern Software Engineer",
-      company: "TechSolutions Inc., 2023-Present",
-      description: "Working on full-stack development with focus on mobile applications",
+      company: "Ecommex Digital Business Co. (pvt) Ltd, 2024-Dec to present",
+      description: "Working on full-stack developer with focus on mobile applications",
       icon: "fas fa-briefcase"
-    },
-    {
-      title: "Freelance Mobile Developer",
-      company: "Self-employed, 2021-2023",
-      description: "Developed custom mobile applications for various clients",
-      icon: "fas fa-laptop-code"
     }
+    // },
+    // {
+    //   title: "Freelance Mobile Developer",
+    //   company: "Self-employed, 2021-2023",
+    //   description: "Developed custom mobile applications for various clients",
+    //   icon: "fas fa-laptop-code"
+    // }
   ];
 
   return (

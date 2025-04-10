@@ -62,7 +62,7 @@ export default function ContactSection() {
     { 
       icon: "fas fa-phone-alt", 
       title: "Phone", 
-      content: "+94 71 234 5678", 
+      content: "+94 77 618 3693",
       color: "text-secondary", 
       bgColor: "bg-secondary/20", 
       link: "tel:+94712345678" 
@@ -70,7 +70,7 @@ export default function ContactSection() {
     { 
       icon: "fas fa-map-marker-alt", 
       title: "Location", 
-      content: "Colombo, Sri Lanka", 
+      content: "Marawila, Sri Lanka",
       color: "text-accent", 
       bgColor: "bg-accent/20", 
       link: null 
@@ -85,12 +85,12 @@ export default function ContactSection() {
     },
     { 
       icon: "fab fa-linkedin-in", 
-      url: "https://linkedin.com", 
+      url: "www.linkedin.com/in/dushan-chanuka",
       hoverColor: "hover:text-blue-400 hover:bg-blue-900/20" 
     },
     { 
       icon: "fab fa-instagram", 
-      url: "https://instagram.com", 
+      url: "https://www.instagram.com/_.d_u_s_h_a_n._/",
       hoverColor: "hover:text-pink-400 hover:bg-pink-900/20" 
     }
   ];

@@ -51,10 +51,15 @@ export default function Navbar() {
             onClick={() => handleNavClick("home")}
             className="flex items-center space-x-2"
           >
-            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-xl">
-              JS
+            <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-secondary overflow-hidden">
+              <img
+                  src="https://avatars.githubusercontent.com/u/125439016?v=4"
+                  alt="Avatar"
+                  className="w-full h-full object-cover"
+              />
             </div>
-            <span className="font-sans font-bold text-xl text-white">John Smith</span>
+
+            <span className="font-sans font-bold text-xl text-white">Dushan Chanuka</span>
           </button>
           
           {/* Desktop Menu */}

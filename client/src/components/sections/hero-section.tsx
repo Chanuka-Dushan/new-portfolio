@@ -30,7 +30,7 @@ export default function HeroSection() {
                 transition={{ delay: 0.3 }}
               >
                 <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent bg-[length:200%_200%] animate-gradient">
-                  John Smith
+                  Dushan chanuka
                 </span>
               </motion.h1>
               <div className="mt-2">
@@ -77,16 +77,13 @@ export default function HeroSection() {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.9 }}
             >
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300">
+              <a href="https://github.com/Chanuka-Dushan" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300">
                 <i className="fab fa-github text-2xl"></i>
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300">
+              <a href="www.linkedin.com/in/dushan-chanuka" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300">
                 <i className="fab fa-linkedin text-2xl"></i>
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300">
-                <i className="fab fa-twitter text-2xl"></i>
-              </a>
-              <a href="mailto:contact@example.com" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300">
+              <a href="mailto:hd.wijewantha@gmail.com" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300">
                 <i className="fas fa-envelope text-2xl"></i>
               </a>
             </motion.div>
@@ -126,10 +123,10 @@ export default function HeroSection() {
                 >
                   <i className="fas fa-laptop-code text-3xl"></i>
                 </motion.div>
-                <img 
-                  className="w-3/4 h-3/4 rounded-full object-cover" 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80" 
-                  alt="Developer Portrait" 
+                <img
+                    className="w-3/4 h-3/4 rounded-full object-cover"
+                    src="/src/images/developer_photo.png"
+                    alt="Developer Portrait"
                 />
               </div>
             </motion.div>

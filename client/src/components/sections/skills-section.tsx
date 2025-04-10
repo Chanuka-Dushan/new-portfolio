@@ -31,7 +31,7 @@ export default function SkillsSection() {
       icon: "fas fa-cloud",
       color: "text-accent",
       gradient: "from-accent to-primary",
-      description: "Implementing continuous integration, deployment, and cloud-based solutions.",
+      description: "Currently exploring and learning DevOps practices including CI/CD and cloud-based infrastructure.",
       skills: [
         "Setting up CI/CD pipelines for automated testing and deployment",
         "Managing cloud infrastructure and containerized applications",
@@ -166,47 +166,7 @@ export default function SkillsSection() {
           ))}
         </motion.div>
         
-        {/* GitHub Stats */}
-        <motion.div
-          className="mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <h3 className="text-2xl font-sans font-bold text-center mb-8">
-            GitHub <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Statistics</span>
-          </h3>
-          
-          <div className="flex flex-col lg:flex-row justify-center items-center gap-6">
-            <motion.div
-              className="bg-dark-bg rounded-xl p-6 shadow-md border border-gray-800 w-full lg:w-auto"
-              whileHover={{ y: -5 }}
-              transition={{ type: "spring", stiffness: 300, damping: 10 }}
-            >
-              <a href="https://github.com/Chanuka-Dushan" target="_blank" rel="noopener noreferrer">
-                <img
-                  src={`https://github-readme-stats.vercel.app/api?username=Chanuka-Dushan&show_icons=true&count_private=true&theme=tokyonight&hide_border=true&bg_color=1a1b27`}
-                  alt="GitHub Stats"
-                  className="w-full h-auto"
-                />
-              </a>
-            </motion.div>
-            <motion.div
-              className="bg-dark-bg rounded-xl p-6 shadow-md border border-gray-800 w-full lg:w-auto"
-              whileHover={{ y: -5 }}
-              transition={{ type: "spring", stiffness: 300, damping: 10 }}
-            >
-              <a href="https://github.com/Chanuka-Dushan" target="_blank" rel="noopener noreferrer">
-                <img
-                  src={`https://github-readme-streak-stats.herokuapp.com/?user=Chanuka-Dushan&theme=tokyonight&hide_border=true&background=1a1b27`}
-                  alt="GitHub Streak Stats"
-                  className="w-full h-auto"
-                />
-              </a>
-            </motion.div>
-          </div>
-        </motion.div>
+
         
         {/* Technologies by Category */}
         {techCategories.map((techCategory, categoryIdx) => (
