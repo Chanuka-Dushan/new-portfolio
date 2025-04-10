@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTheme } from "@/hooks/use-theme";
 import { scrollToElement } from "@/lib/utils";
 import { useScrollSpy } from "@/hooks/use-scroll-spy";
 
@@ -13,7 +12,6 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const { theme, setTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
   const activeSection = useScrollSpy();
@@ -21,11 +19,6 @@ export default function Navbar() {
   // Toggle mobile menu
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  };
-
-  // Toggle theme between light and dark
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
   };
 
   // Handle navigation click
@@ -49,7 +42,7 @@ export default function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 w-full z-50 bg-white/80 dark:bg-dark-bg/80 backdrop-blur-md transition-all duration-300 ${hasScrolled ? "shadow-md" : "shadow-sm"}`}
+      className={`fixed top-0 left-0 w-full z-50 bg-dark-bg/90 backdrop-blur-md transition-all duration-300 ${hasScrolled ? "shadow-md" : "shadow-sm"}`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
@@ -61,7 +54,7 @@ export default function Navbar() {
             <div className="w-10 h-10 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center text-white font-bold text-xl">
               JS
             </div>
-            <span className="font-sans font-bold text-xl dark:text-white">John Smith</span>
+            <span className="font-sans font-bold text-xl text-white">John Smith</span>
           </button>
           
           {/* Desktop Menu */}
@@ -70,32 +63,21 @@ export default function Navbar() {
               <button
                 key={link.target}
                 onClick={() => handleNavClick(link.target)}
-                className={`text-gray-600 hover:text-primary dark:text-gray-300 dark:hover:text-primary-light font-medium transition-colors duration-300 ${activeSection === link.target ? "text-primary dark:text-primary-light" : ""}`}
+                className={`text-gray-300 hover:text-primary-light font-medium transition-colors duration-300 ${activeSection === link.target ? "text-primary-light" : ""}`}
               >
                 {link.label}
               </button>
             ))}
           </div>
           
-          {/* Theme Toggle & Mobile Menu Button */}
-          <div className="flex items-center space-x-4">
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="w-10 h-10 rounded-full bg-light-surface dark:bg-dark-surface flex items-center justify-center shadow-md hover:shadow-lg transition-all duration-300"
-              aria-label="Toggle theme"
-            >
-              <i className="fas fa-sun text-yellow-500 dark:hidden"></i>
-              <i className="fas fa-moon text-blue-300 hidden dark:block"></i>
-            </button>
-            
-            {/* Mobile Menu Button */}
+          {/* Mobile Menu Button */}
+          <div className="flex items-center">
             <button
               onClick={toggleMenu}
               className="md:hidden w-10 h-10 flex items-center justify-center"
               aria-label="Toggle menu"
             >
-              <i className="fas fa-bars text-xl"></i>
+              <i className="fas fa-bars text-xl text-gray-300"></i>
             </button>
           </div>
         </div>
@@ -109,14 +91,14 @@ export default function Navbar() {
             animate={{ maxHeight: 500, opacity: 1 }}
             exit={{ maxHeight: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-white dark:bg-dark-surface shadow-lg rounded-b-xl mx-4 overflow-hidden"
+            className="md:hidden bg-dark-surface shadow-lg rounded-b-xl mx-4 overflow-hidden"
           >
             <div className="flex flex-col py-4">
               {navLinks.map((link) => (
                 <button
                   key={link.target}
                   onClick={() => handleNavClick(link.target)}
-                  className="px-6 py-3 text-left hover:bg-gray-100 dark:hover:bg-dark-bg transition-colors duration-300"
+                  className="px-6 py-3 text-left text-gray-300 hover:bg-dark-bg hover:text-primary-light transition-colors duration-300"
                 >
                   {link.label}
                 </button>
