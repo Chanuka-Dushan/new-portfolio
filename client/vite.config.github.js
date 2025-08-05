@@ -5,7 +5,7 @@ import path from "path";
 // This is a simplified config just for GitHub Pages static deployment
 export default defineConfig({
   plugins: [react()],
-  base: "./", // Use relative paths for GitHub Pages
+  base: "/new-portfolio/", // Use relative paths for GitHub Pages
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
