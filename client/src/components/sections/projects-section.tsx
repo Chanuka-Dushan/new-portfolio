@@ -1,16 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ProjectCard from "@/components/common/project-card";
-import { projects } from "@/lib/constants";
-
-// Define ProjectType (adjust according to your actual project structure)
-interface ProjectType {
-  id: string | number;
-  title: string;
-  category: string;
-  description: string;
-  // Add other properties as needed
-}
+import { projects, ProjectType } from "@/lib/constants";
 
 // Project categories for filtering
 const categories = ["All", "Mobile", "Web"] as const;
