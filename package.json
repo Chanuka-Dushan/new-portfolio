@@ -1,13 +1,13 @@
 {
-  "homepage": "https://Chanuka-Dushan.github.io/New-Portfolio",
-  "name": "rest-express",
+  "homepage": "https://Chanuka-Dushan.github.io/new-portfolio/",
+  "name": "new-portfolio",
   "version": "1.0.0",
   "type": "module",
   "license": "MIT",
   "scripts": {
     "dev": "tsx server/index.ts",
     "build": "vite build",
-    "deploy": "gh-pages -d dist -r https://github.com/Chanuka-Dushan/New-Portfolio"
+    "deploy": "gh-pages -d dist "
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
