@@ -8,7 +8,7 @@ const categories = ["All", "Mobile", "Web"] as const;
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState<string>("All");
-  const [filteredProjects, setFilteredProjects] = useState<ProjectType[]>([]);
+  const [filteredProjects, setFilteredProjects] = useState<ProjectType[]>(projects);
   const [visibleProjects, setVisibleProjects] = useState<number>(6);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -24,14 +24,9 @@ export default function ProjectsSection() {
       // Debug: Log projects to verify categories
       console.log("Available project categories:", Array.from(new Set(projects.map(p => p.category))));
 
-      let newFilteredProjects: ProjectType[];
-      if (activeFilter === "All") {
-        newFilteredProjects = projects;
-      } else {
-        newFilteredProjects = projects.filter((project) => 
-          project.category?.toLowerCase() === activeFilter.toLowerCase()
-        );
-      }
+      const newFilteredProjects = activeFilter === "All"
+        ? projects
+        : projects.filter((project) => project.category === activeFilter);
 
       if (newFilteredProjects.length === 0 && activeFilter !== "All") {
         console.warn(`No projects found for category: ${activeFilter}`);
@@ -43,7 +38,7 @@ export default function ProjectsSection() {
     } finally {
       setIsLoading(false);
     }
-  }, [activeFilter]);
+  }, [activeFilter, projects]);
 
   // Filter projects based on category and reset visible projects
   const handleFilterClick = (category: string) => {
@@ -150,6 +145,7 @@ export default function ProjectsSection() {
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true }}
+                  key={activeFilter} // Force re-render on filter change
               >
                 <AnimatePresence>
                   {filteredProjects
