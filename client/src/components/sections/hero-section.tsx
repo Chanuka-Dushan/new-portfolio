@@ -125,7 +125,7 @@ export default function HeroSection() {
                 </motion.div>
                 <img
                     className="w-3/4 h-3/4 rounded-full object-cover"
-                    src="/src/images/developer_photo.png"
+                    src="https://github.com/Chanuka-Dushan/new-portfolio/blob/main/client/src/images/developer_photo.png"
                     alt="Developer Portrait"
                 />
               </div>

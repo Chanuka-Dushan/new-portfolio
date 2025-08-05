@@ -10,7 +10,7 @@ import { useEffect } from "react";
 export default function Home() {
   // Set page title
   useEffect(() => {
-    document.title = "John Smith | Software Engineer & Mobile Developer";
+    document.title = "Dushan Chanuka | Software Engineer & Mobile Developer";
   }, []);
 
   return (
