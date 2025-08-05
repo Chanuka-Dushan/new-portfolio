@@ -1,3 +1,10 @@
+
+import Ecommex from "@/images/ecommex.png";
+import EcommexMobile from "@/images/ecomMobile.png";
+import WhatsAppTrack from "@/images/whatsappTrack.png";
+import HotelReserve from "@/images/hotelreserve.png";
+import EasyRent from "@/images/easyrent.png";
+
 export interface ProjectType {
   id: number;
   title: string;
@@ -17,7 +24,7 @@ export const projects: ProjectType[] = [
     title: "Ecommex.one",
     description: "Woked as Fullstack Developer in this Project for 6 months",
     category: "Web",
-    image: "/src/images/ecommex.png",
+    image:Ecommex,
     tags: ["Php", "Node", "Express","Prisma","MySQL","Html","css","Javascript"],
     links: [
       { icon: "fas fa-link", url: "https://ecommex.one/user/view/index-en.php" }
@@ -29,7 +36,7 @@ export const projects: ProjectType[] = [
     title: "Ecommex Mobile App",
     description: "Mobile Application To Manage Ecommex Admin Dashboard.Worked As The Main Developer for this project",
     category: "Mobile",
-    image: "/src/images/ecomMobile.png",
+    image:EcommexMobile,
     tags: ["Flutter", "Socket.io", "Firebase"],
     links: [
       { icon: "fas fa-link", url: "https://ecommex.one/user/view/index-si.php" },
@@ -41,7 +48,7 @@ export const projects: ProjectType[] = [
     title: "WhatsApp Monitor",
     description: "Application for Monitoring Whatsapp Contacts and fetch data From labels anc categorized By Saved or unsaved manner",
     category: "Mobile",
-    image: "/src/images/whatsappTrack.png",
+    image:WhatsAppTrack,
     tags: ["Flutter", "Firebase"],
     links: [
       { icon: "fab fa-github", url: "https://github.com/Chanuka-Dushan/WhatsApp-Number-Tracker" }
@@ -52,7 +59,7 @@ export const projects: ProjectType[] = [
     title: "Hotel Reservation System For Weddings",
     description: "A modern Event management Website for wedding events.",
     category: "Web",
-    image: "/src/images/hotelreserve.png",
+    image: HotelReserve,
     tags: ["Html", "Css", "Javascript","Jwt Auth","Mysql"],
     links: [
 
@@ -66,7 +73,7 @@ export const projects: ProjectType[] = [
     title: "Easy Rent",
     description: "A weather forecasting app with beautiful visualizations and location-based alerts.",
     category: "Web",
-    image: "/src/images/easyrent.png",
+    image: EasyRent ,
     tags: ["Mongo DB", "React", "Vite","Tailwind CSS","Node js","Express"],
     links: [
 
