@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import AnimatedText from "@/components/common/animated-text";
 import { scrollToElement } from "@/lib/utils";
+import DeveloperPhoto from "@/images/developer_photo.png";
 
 export default function HeroSection() {
   return (
@@ -125,7 +126,7 @@ export default function HeroSection() {
                 </motion.div>
                 <img
                     className="w-3/4 h-3/4 rounded-full object-cover"
-                    src="https://github.com/Chanuka-Dushan/new-portfolio/blob/main/client/src/images/developer_photo.png"
+                    src={DeveloperPhoto}
                     alt="Developer Portrait"
                 />
               </div>
