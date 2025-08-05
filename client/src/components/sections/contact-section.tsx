@@ -90,7 +90,7 @@ export default function ContactSection() {
     },
     { 
       icon: "fab fa-linkedin-in", 
-      url: "www.linkedin.com/in/dushan-chanuka",
+      url: "https://www.linkedin.com/in/dushan-chanuka",
       hoverColor: "hover:text-blue-400 hover:bg-blue-900/20" 
     },
     { 
