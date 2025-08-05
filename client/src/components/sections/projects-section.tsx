@@ -8,7 +8,7 @@ const categories = ["All", "Mobile", "Web"] as const;
 
 export default function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState<string>("All");
-  const [filteredProjects, setFilteredProjects] = useState<ProjectType[]>([]); // Explicitly typed
+  const [filteredProjects, setFilteredProjects] = useState<ProjectType[]>([]);
   const [visibleProjects, setVisibleProjects] = useState<number>(6);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -20,13 +20,24 @@ export default function ProjectsSection() {
       if (!projects || !Array.isArray(projects)) {
         throw new Error("Projects data is not available or invalid");
       }
+
+      // Debug: Log projects to verify categories
+      console.log("Available project categories:", Array.from(new Set(projects.map(p => p.category))));
+
+      let newFilteredProjects: ProjectType[];
       if (activeFilter === "All") {
-        setFilteredProjects(projects);
+        newFilteredProjects = projects;
       } else {
-        setFilteredProjects(
-            projects.filter((project) => project.category === activeFilter)
+        newFilteredProjects = projects.filter((project) => 
+          project.category?.toLowerCase() === activeFilter.toLowerCase()
         );
       }
+
+      if (newFilteredProjects.length === 0 && activeFilter !== "All") {
+        console.warn(`No projects found for category: ${activeFilter}`);
+      }
+
+      setFilteredProjects(newFilteredProjects);
     } catch (err) {
       setError(err instanceof Error ? err.message : String(err));
     } finally {
