@@ -1,4 +1,5 @@
-import { Route, Switch } from "wouter";
+import { Route, Switch, Router as WouterRouter } from "wouter";
+import { useHashLocation } from "wouter/use-hash-location";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { queryClient } from "./lib/queryClient-static";
 import { ThemeProvider } from "@/components/ui/theme-provider";
@@ -19,7 +20,9 @@ function AppStatic() {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="dark">
-        <Router />
+        <WouterRouter hook={useHashLocation}>
+          <Router />
+        </WouterRouter>
         <Toaster />
       </ThemeProvider>
     </QueryClientProvider>
