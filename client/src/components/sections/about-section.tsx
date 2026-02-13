@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import EducationExperienceTabs from "@/components/common/education-experience-tabs";
 import { useEffect, useState } from "react";
+import DeveloperPhoto from "@/images/developer_photo.png";
 
 export default function AboutSection() {
   const [repoCount, setRepoCount] = useState<number | null>(null);
@@ -56,8 +57,8 @@ export default function AboutSection() {
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-accent/30 mix-blend-overlay"></div>
                 <img
                     className="w-full h-auto"
-                    src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1772&q=80"
-                    alt="Developer working on code"
+                    src={DeveloperPhoto}
+                    alt="Dushan Chanuka - Software Developer"
                 />
               </motion.div>
 
