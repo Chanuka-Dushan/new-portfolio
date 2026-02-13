@@ -70,7 +70,7 @@ export default function ContactSection() {
       content: "+94 77 618 3693",
       color: "text-secondary", 
       bgColor: "bg-secondary/20", 
-      link: "tel:+94712345678" 
+      link: "tel:+94776183693" 
     },
     { 
       icon: "fas fa-map-marker-alt", 
