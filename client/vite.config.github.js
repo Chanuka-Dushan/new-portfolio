@@ -34,15 +34,15 @@ export default async () => {
 
   return defineConfig({
     plugins,
-    base: "/new-portfolio/",
+    base: "/",
     resolve: {
       alias: {
-        "@": path.resolve("client", "src"),
-        "@shared": path.resolve("shared"),
-        "@assets": path.resolve("attached_assets"),
+        "@": path.resolve(__dirname, "src"),
+        "@shared": path.resolve(__dirname, "..", "shared"),
+        "@assets": path.resolve(__dirname, "..", "attached_assets"),
       },
     },
-    root: path.resolve(__dirname, "client"),
+    root: __dirname,
     build: {
       outDir: path.resolve(__dirname, "dist"),
       emptyOutDir: true,
