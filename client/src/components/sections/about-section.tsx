@@ -125,13 +125,19 @@ export default function AboutSection() {
               </p>
 
               {/* GitHub Stats Image */}
-              <div className="mt-6 flex items-center space-x-4">
+              <div className="mt-6 flex flex-col lg:flex-row items-center gap-4">
                 <img
-                    src="https://github-readme-stats.vercel.app/api?username=Chanuka-Dushan&show_icons=true&theme=radical&hide_border=true&bg_color=0d1117&title_color=a855f7&icon_color=a855f7"
+                    src={`https://github-readme-stats.vercel.app/api?username=Chanuka-Dushan&show_icons=true&theme=radical&hide_border=true&bg_color=0d1117&title_color=a855f7&icon_color=a855f7&cache_seconds=1800`}
                     alt="Dushan Chanuka's GitHub Stats"
-                    className="rounded-xl border border-gray-800 shadow-md"
-                    loading="lazy"
-                    onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/400x200?text=GitHub+Stats+Loading'; }}
+                    className="rounded-xl border border-gray-800 shadow-md w-full lg:w-auto"
+                    loading="eager"
+                    onError={(e) => { 
+                      const target = e.currentTarget;
+                      // Try alternative GitHub stats service
+                      if (!target.src.includes('github-readme-streak-stats')) {
+                        target.src = `https://github-readme-streak-stats.herokuapp.com/?user=Chanuka-Dushan&theme=radical&hide_border=true&background=0d1117&ring=a855f7&fire=a855f7&currStreakLabel=a855f7`;
+                      }
+                    }}
                 />
 
                 {/* Repo count card */}
