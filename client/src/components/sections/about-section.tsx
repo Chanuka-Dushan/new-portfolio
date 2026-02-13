@@ -126,9 +126,11 @@ export default function AboutSection() {
               {/* GitHub Stats Image */}
               <div className="mt-6 flex items-center space-x-4">
                 <img
-                    src="https://github-readme-stats.vercel.app/api?username=Chanuka-Dushan&show_icons=true&theme=radical"
+                    src="https://github-readme-stats.vercel.app/api?username=Chanuka-Dushan&show_icons=true&theme=radical&hide_border=true&bg_color=0d1117&title_color=a855f7&icon_color=a855f7"
                     alt="Dushan Chanuka's GitHub Stats"
                     className="rounded-xl border border-gray-800 shadow-md"
+                    loading="lazy"
+                    onError={(e) => { e.currentTarget.src = 'https://via.placeholder.com/400x200?text=GitHub+Stats+Loading'; }}
                 />
 
                 {/* Repo count card */}

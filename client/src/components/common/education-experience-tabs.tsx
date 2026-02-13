@@ -21,10 +21,16 @@ export default function EducationExperienceTabs() {
 
   const experience = [
     {
-      title: "Intern Software Engineer",
-      company: "Ecommex Digital Business Co. (pvt) Ltd, 2024-Dec to present",
-      description: "Working on full-stack developer with focus on mobile applications",
+      title: "Junior Software Engineer",
+      company: "Irusri Group, August 2025 - Present",
+      description: "Working as a full-stack developer building scalable web applications and modern mobile solutions",
       icon: "fas fa-briefcase"
+    },
+    {
+      title: "Intern Software Engineer",
+      company: "Ecommex Digital Business Co. (pvt) Ltd, December 2024 - July 2025",
+      description: "Worked as a full-stack developer with focus on mobile applications and web development",
+      icon: "fas fa-laptop-code"
     }
     // },
     // {
