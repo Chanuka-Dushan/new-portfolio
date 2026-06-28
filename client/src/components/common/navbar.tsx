@@ -73,6 +73,13 @@ export default function Navbar() {
                 {link.label}
               </button>
             ))}
+            <a 
+              href="/CV.pdf" 
+              download="Dushan_Chanuka_CV.pdf"
+              className="px-4 py-2 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-medium hover:shadow-lg hover:shadow-primary/30 transition-all duration-300 transform hover:-translate-y-0.5"
+            >
+              Download CV
+            </a>
           </div>
           
           {/* Mobile Menu Button */}
@@ -108,6 +115,16 @@ export default function Navbar() {
                   {link.label}
                 </button>
               ))}
+              <div className="px-6 pt-4 pb-2 mt-2 border-t border-gray-700/50">
+                <a 
+                  href="/CV.pdf" 
+                  download="Dushan_Chanuka_CV.pdf"
+                  className="block w-full text-center px-4 py-2.5 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-medium shadow-md shadow-primary/20 hover:shadow-primary/40 transition-all duration-300"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Download CV
+                </a>
+              </div>
             </div>
           </motion.div>
         )}

@@ -14,7 +14,7 @@ export default async () => {
     {
       name: "copy-index-to-404",
       closeBundle() {
-        const distDir = path.resolve(__dirname, "dist");
+        const distDir = path.resolve(import.meta.dirname, "dist");
         const indexHtml = path.join(distDir, "index.html");
         const fallbackHtml = path.join(distDir, "404.html");
 
@@ -42,9 +42,9 @@ export default async () => {
         "@assets": path.resolve("attached_assets"),
       },
     },
-    root: path.resolve(__dirname, "client"),
+    root: path.resolve(import.meta.dirname, "client"),
     build: {
-      outDir: path.resolve(__dirname, "dist"),
+      outDir: path.resolve(import.meta.dirname, "dist"),
       emptyOutDir: true,
     }
   });

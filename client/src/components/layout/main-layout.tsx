@@ -8,6 +8,8 @@ interface MainLayoutProps {
   children: React.ReactNode;
 }
 
+import CustomCursor from "@/components/common/custom-cursor";
+
 export default function MainLayout({ children }: MainLayoutProps) {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -37,6 +39,7 @@ export default function MainLayout({ children }: MainLayoutProps) {
 
   return (
     <div className="min-h-screen flex flex-col font-sans bg-light-bg dark:bg-dark-bg text-light-text dark:text-dark-text transition-colors duration-300">
+      <CustomCursor />
       {/* Scroll Progress Indicator */}
       <motion.div 
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary to-secondary z-[100]"

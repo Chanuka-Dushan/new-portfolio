@@ -1,163 +1,172 @@
 import { motion } from "framer-motion";
-import AnimatedText from "@/components/common/animated-text";
+import MagneticButton from "@/components/common/magnetic-button";
 import { scrollToElement } from "@/lib/utils";
 import DeveloperPhoto from "@/images/developer_photo.png";
 
 export default function HeroSection() {
   return (
-    <section id="home" className="min-h-screen flex items-center pt-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
+    <section id="home" className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-[#030014]">
+      {/* Dynamic Grid Background */}
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]"></div>
+
+      {/* Floating Animated Orbs */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <motion.div 
+          className="absolute top-[10%] left-[20%] w-[30rem] h-[30rem] bg-purple-600/30 rounded-full blur-[120px] mix-blend-screen"
+          animate={{ x: [0, 100, 0], y: [0, -50, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute bottom-[10%] right-[20%] w-[40rem] h-[40rem] bg-blue-600/20 rounded-full blur-[150px] mix-blend-screen"
+          animate={{ x: [0, -100, 0], y: [0, 50, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        />
+      </div>
+      
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-8 max-w-7xl mx-auto">
+          
           {/* Text Content */}
-          <motion.div 
-            className="lg:w-1/2 space-y-6 order-2 lg:order-1"
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+            }}
+            className="lg:w-[55%] space-y-8 text-center lg:text-left"
           >
-            <div className="space-y-2">
-              <motion.h2 
-                className="text-2xl font-medium text-gray-600 dark:text-gray-400"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-              >
-                Hello, I'm
-              </motion.h2>
+            {/* Status Pill */}
+            <motion.div 
+              variants={{ hidden: { opacity: 0, y: -20 }, visible: { opacity: 1, y: 0 } }}
+              className="flex justify-center lg:justify-start"
+            >
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md shadow-2xl inline-flex">
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                </span>
+                <span className="text-gray-300 text-sm font-medium tracking-wide">Available for new opportunities</span>
+              </div>
+            </motion.div>
+
+            {/* Massive Typography */}
+            <div className="space-y-4">
               <motion.h1 
-                className="text-5xl sm:text-6xl font-sans font-bold"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3 }}
+                className="text-5xl sm:text-7xl lg:text-8xl font-sans font-extrabold tracking-tighter"
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
               >
-                <span className="bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent bg-[length:200%_200%] animate-gradient">
-                  Dushan chanuka
+                <span className="text-white drop-shadow-2xl leading-tight">
+                  Dushan
+                </span>
+                <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 animate-gradient bg-[length:200%_auto] leading-tight">
+                  Chanuka
                 </span>
               </motion.h1>
-              <div className="mt-2">
-                <AnimatedText text="Mobile Developer & Software Engineer" className="text-xl sm:text-2xl font-medium text-gray-700 dark:text-gray-300" />
-              </div>
+              
+              <motion.h2
+                className="text-2xl sm:text-3xl text-gray-400 font-medium tracking-tight mt-4"
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+              >
+                Software Engineer & Mobile Developer
+              </motion.h2>
             </div>
-            
+
             <motion.p 
-              className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
+              className="text-lg sm:text-xl text-gray-500 max-w-xl mx-auto lg:mx-0 leading-relaxed"
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
             >
-              I specialize in creating beautiful, user-friendly mobile applications and web experiences with a focus on performance and modern technologies.
+              I engineer robust mobile and web applications, transforming complex problems into elegant, high-performance digital experiences.
             </motion.p>
             
+            {/* Action Buttons */}
             <motion.div 
-              className="flex flex-wrap gap-4 mt-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4"
+              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
             >
-              <motion.button
+              <MagneticButton
                 onClick={() => scrollToElement("projects")}
-                className="px-6 py-3 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-medium hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white text-black font-semibold hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 group shadow-[0_0_40px_rgba(255,255,255,0.15)]"
               >
-                View My Work
-              </motion.button>
-              <motion.button
+                Explore Projects 
+                <i className="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+              </MagneticButton>
+              <MagneticButton
                 onClick={() => scrollToElement("contact")}
-                className="px-6 py-3 rounded-full bg-light-surface dark:bg-dark-surface text-gray-700 dark:text-gray-300 font-medium border border-gray-300 dark:border-gray-700 hover:border-primary dark:hover:border-primary hover:text-primary dark:hover:text-primary-light transform hover:-translate-y-1 transition-all duration-300"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/5 backdrop-blur-md border border-white/10 text-white font-semibold hover:bg-white/10 transition-all duration-300 flex items-center justify-center"
               >
                 Contact Me
-              </motion.button>
+              </MagneticButton>
             </motion.div>
-            
+
+            {/* Social Links */}
             <motion.div 
-              className="flex items-center space-x-6 mt-8"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.9 }}
+              className="flex items-center justify-center lg:justify-start gap-6 pt-8"
+              variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
             >
-              <a href="https://github.com/Chanuka-Dushan" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300">
-                <i className="fab fa-github text-2xl"></i>
-              </a>
-              <a href="www.linkedin.com/in/dushan-chanuka" target="_blank" rel="noopener noreferrer" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300">
-                <i className="fab fa-linkedin text-2xl"></i>
-              </a>
-              <a href="mailto:hd.wijewantha@gmail.com" className="text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary-light transition-colors duration-300">
-                <i className="fas fa-envelope text-2xl"></i>
-              </a>
+              {[
+                { icon: "fab fa-github", url: "https://github.com/Chanuka-Dushan" },
+                { icon: "fab fa-linkedin", url: "https://www.linkedin.com/in/dushan-chanuka" },
+                { icon: "fas fa-envelope", url: "mailto:hd.wijewantha@gmail.com" }
+              ].map((social, idx) => (
+                <a 
+                  key={idx}
+                  href={social.url} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-gray-500 hover:text-white transition-colors duration-300 transform hover:scale-110"
+                >
+                  <i className={`${social.icon} text-3xl`}></i>
+                </a>
+              ))}
             </motion.div>
           </motion.div>
-          
-          {/* Hero Image/Animation */}
+
+          {/* Hero Image / Floating Glass Container */}
           <motion.div 
-            className="lg:w-1/2 order-1 lg:order-2 flex justify-center"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            className="lg:w-[45%] flex justify-center lg:justify-end relative mt-12 lg:mt-0"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
           >
-            <motion.div 
-              className="relative w-80 h-80 md:w-96 md:h-96"
-              animate={{ y: [0, -10, 0] }}
-              transition={{ 
-                repeat: Infinity, 
-                duration: 3,
-                ease: "easeInOut"
-              }}
-            >
-              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-primary-light via-accent to-secondary-light opacity-20 rounded-full blur-2xl"></div>
-              <div className="relative w-full h-full bg-light-surface dark:bg-dark-surface rounded-full flex items-center justify-center border-4 border-white dark:border-gray-800 shadow-xl">
-                <motion.div 
-                  className="absolute -top-4 -right-4 w-20 h-20 bg-accent rounded-2xl flex items-center justify-center text-white shadow-lg"
-                  initial={{ rotate: 0 }}
-                  animate={{ rotate: 12 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <i className="fas fa-mobile-alt text-3xl"></i>
-                </motion.div>
-                <motion.div 
-                  className="absolute -bottom-6 -left-6 w-24 h-24 bg-primary rounded-2xl flex items-center justify-center text-white shadow-lg"
-                  initial={{ rotate: 0 }}
-                  animate={{ rotate: -12 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <i className="fas fa-laptop-code text-3xl"></i>
-                </motion.div>
+            <div className="relative w-72 h-72 sm:w-96 sm:h-96">
+              {/* Rotating background glow */}
+              <motion.div 
+                className="absolute inset-0 bg-gradient-to-tr from-purple-500 to-blue-500 rounded-full blur-2xl opacity-40"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              />
+              
+              {/* Main Image Container */}
+              <div className="relative w-full h-full rounded-full border-2 border-white/10 bg-white/5 backdrop-blur-xl p-4 shadow-2xl flex items-center justify-center overflow-hidden">
                 <img
-                    className="w-3/4 h-3/4 rounded-full object-cover"
-                    src={DeveloperPhoto}
-                    alt="Developer Portrait"
+                  src={DeveloperPhoto}
+                  alt="Dushan Chanuka"
+                  className="w-full h-full object-cover rounded-full"
                 />
               </div>
-            </motion.div>
+
+              {/* Floating Tech Badges */}
+              <motion.div 
+                className="absolute -top-4 right-8 bg-white/10 backdrop-blur-xl border border-white/20 p-4 rounded-2xl shadow-xl flex items-center justify-center"
+                animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              >
+                <i className="fas fa-code text-3xl text-purple-400"></i>
+              </motion.div>
+              <motion.div 
+                className="absolute -bottom-8 left-12 bg-white/10 backdrop-blur-xl border border-white/20 p-4 rounded-2xl shadow-xl flex items-center justify-center"
+                animate={{ y: [0, 10, 0], rotate: [0, -5, 0] }}
+                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1 }}
+              >
+                <i className="fas fa-mobile-alt text-3xl text-blue-400"></i>
+              </motion.div>
+            </div>
           </motion.div>
+
         </div>
-        
-        {/* Scroll Down Indicator */}
-        <motion.div 
-          className="flex justify-center mt-12 lg:mt-0"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-        >
-          <motion.a 
-            href="#about" 
-            className="text-gray-500 dark:text-gray-400"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ 
-              repeat: Infinity, 
-              duration: 1.5,
-              ease: "easeInOut"
-            }}
-            onClick={(e) => {
-              e.preventDefault();
-              scrollToElement("about");
-            }}
-          >
-            <i className="fas fa-chevron-down text-2xl"></i>
-          </motion.a>
-        </motion.div>
       </div>
     </section>
   );

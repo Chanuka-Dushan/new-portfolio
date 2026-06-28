@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import TiltCard from "@/components/common/tilt-card";
 
 export default function SkillsSection() {
   const skillCategories = [
@@ -138,13 +139,7 @@ export default function SkillsSection() {
           viewport={{ once: true }}
         >
           {skillCategories.map((category, idx) => (
-            <motion.div 
-              key={idx}
-              className="bg-dark-bg rounded-xl shadow-md p-6 hover:shadow-lg border border-gray-800 transition-all duration-300"
-              variants={itemVariants}
-              whileHover={{ y: -8 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
+            <TiltCard key={idx} className="bg-dark-bg rounded-xl shadow-md p-6 hover:shadow-2xl border border-gray-800 transition-shadow duration-300">
               <div className={`${category.color} text-4xl mb-4`}>
                 <i className={category.icon}></i>
               </div>
@@ -162,7 +157,7 @@ export default function SkillsSection() {
                   </div>
                 ))}
               </div>
-            </motion.div>
+            </TiltCard>
           ))}
         </motion.div>
         
